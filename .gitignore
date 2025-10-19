@@ -1,0 +1,11 @@
+# Ignorar o ambiente virtual do Python
+backend/venv/
+
+# Ignorar dependências do Node.js (serão criadas pelo frontend)
+frontend/node_modules/
+
+# Ignorar a pasta de "build" do frontend
+frontend/dist/
+
+# Ignorar arquivos de variáveis de ambiente (contêm senhas e chaves)
+.env
