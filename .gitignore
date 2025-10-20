@@ -12,3 +12,5 @@ frontend/dist/
 
 # Ignorar arquivos temporários de upload do backend
 backend/uploads/
+
+backend/google-credentials.json
