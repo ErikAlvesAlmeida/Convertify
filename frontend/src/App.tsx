@@ -48,19 +48,24 @@ function App() {
         responseType: 'blob',
       });
 
-      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const contentDisposition = response.headers['content-disposition'];
+      let filename = 'arquivo-convertido';
 
+      if (contentDisposition) {
+        const filenameMatch = contentDisposition.match(/filename="?([^"]+)"?/);
+        if (filenameMatch && filenameMatch.length > 1) {
+          filename = filenameMatch[1];
+        }
+      }
+      
+      const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement('a');
       link.href = url;
-
       
-      const outputFilename = 'new-archive.bin'; 
-      link.setAttribute('download', outputFilename);
+      link.setAttribute('download', filename);
 
       document.body.appendChild(link);
-
       link.click();
-
       link.parentNode?.removeChild(link);
       window.URL.revokeObjectURL(url);
 

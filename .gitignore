@@ -9,3 +9,6 @@ frontend/dist/
 
 # Ignorar arquivos de variáveis de ambiente (contêm senhas e chaves)
 .env
+
+# Ignorar arquivos temporários de upload do backend
+backend/uploads/
